@@ -1,0 +1,50 @@
+title: Hendro's Life Journey
+description: Portofolio kehidupan, tips & trik, travel, dan kuliner
+baseurl: "" 
+url: "https://hendro.my.id" # akan diubah nanti
+author: Hendro
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: minima
+
+# Navigation menu
+nav_links:
+  - name: Home
+    url: /
+  - name: About
+    url: /about/
+  - name: Blog
+    url: /blog/
+  - name: Travel
+    url: /category/travel/
+  - name: Kuliner
+    url: /category/kuliner/
+  - name: Tips
+    url: /category/tips/
+  - name: Contact
+    url: /contact/
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /:year/:month/:day/:title/
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# SEO
+social:
+  name: Hendro
+  links:
+    - https://instagram.com/hendro
+    - https://linkedin.com/in/hendro
+
+# Comments (opsional - bisa pakai Disqus)
+disqus:
+  shortname: hendro-blog
