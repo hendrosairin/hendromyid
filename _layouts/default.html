@@ -12,18 +12,109 @@
     <!-- CSS -->
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
     
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{{ '/assets/images/favicon.ico' | relative_url }}">
 </head>
 <body>
-    {% include header.html %}
-    
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="{{ '/' | relative_url }}">
+                        <h1>{{ site.title | default: "Hendro's Journey" }}</h1>
+                        <p>{{ site.description | default: "Travel • Kuliner • Life Stories" }}</p>
+                    </a>
+                </div>
+                
+                <nav class="main-navigation">
+                    <button class="menu-toggle" aria-label="Toggle menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <ul class="nav-menu">
+                        <li><a href="{{ '/' | relative_url }}" class="nav-link {% if page.url == '/' %}active{% endif %}">Home</a></li>
+                        <li><a href="{{ '/about/' | relative_url }}" class="nav-link {% if page.url == '/about/' %}active{% endif %}">About</a></li>
+                        <li><a href="{{ '/blog/' | relative_url }}" class="nav-link {% if page.url contains 'blog' %}active{% endif %}">Blog</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="nav-link">Kategori <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ '/category/travel/' | relative_url }}"><i class="fas fa-plane"></i> Travel</a></li>
+                                <li><a href="{{ '/category/kuliner/' | relative_url }}"><i class="fas fa-utensils"></i> Kuliner</a></li>
+                                <li><a href="{{ '/category/tips/' | relative_url }}"><i class="fas fa-lightbulb"></i> Tips</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="{{ '/contact/' | relative_url }}" class="nav-link {% if page.url == '/contact/' %}active{% endif %}">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
     <main class="main-content">
         {{ content }}
     </main>
-    
-    {% include footer.html %}
-    
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>{{ site.title | default: "Hendro's Journey" }}</h3>
+                    <p>Berbagi cerita perjalanan, kuliner nusantara, dan tips kehidupan sehari-hari.</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com/hendro" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com/in/hendro" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://youtube.com/@hendro" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="mailto:hendro@hendro.my.id"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Kategori</h4>
+                    <ul>
+                        <li><a href="{{ '/category/travel/' | relative_url }}">Travel</a></li>
+                        <li><a href="{{ '/category/kuliner/' | relative_url }}">Kuliner</a></li>
+                        <li><a href="{{ '/category/tips/' | relative_url }}">Tips & Trik</a></li>
+                        <li><a href="{{ '/category/personal/' | relative_url }}">Personal</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Halaman</h4>
+                    <ul>
+                        <li><a href="{{ '/about/' | relative_url }}">Tentang Saya</a></li>
+                        <li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
+                        <li><a href="{{ '/contact/' | relative_url }}">Kontak</a></li>
+                        <li><a href="{{ '/sitemap.xml' | relative_url }}">Sitemap</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Newsletter</h4>
+                    <p>Dapatkan update artikel terbaru langsung ke email Anda.</p>
+                    <form class="newsletter-form" action="#" method="post">
+                        <input type="email" placeholder="Email Anda" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; {{ 'now' | date: "%Y" }} {{ site.author | default: "Hendro" }}. All rights reserved.</p>
+                <p>Made with ❤️ using Jekyll & GitHub Pages</p>
+            </div>
+        </div>
+    </footer>
+
     <!-- JavaScript -->
     <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
 </body>
