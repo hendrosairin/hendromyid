@@ -1,0 +1,13 @@
+<nav class="main-navigation">
+    <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+    <ul class="nav-menu">
+        {% for link in site.nav_links %}
+        <li class="nav-item">
+            <a href="{{ link.url | relative_url }}" 
+               class="nav-link{% if page.url == link.url %} active{% endif %}">
+                {{ link.name }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</nav>
